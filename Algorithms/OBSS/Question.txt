@@ -1,0 +1,1 @@
+Given a matrix 2xN , find the matrix with given sum of column (C) and sum of upper row (U) and sum of lower row (L).
