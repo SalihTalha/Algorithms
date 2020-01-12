@@ -1,1 +1,1 @@
-I will be solving this again with unlimited time... I have just a little problem with the function given in the code
+I will be solving this again later because when i try to solve this at first, it was a limited time question on codility. I have just a little problem with the function given in the code that i need to solve using recursion probably.
