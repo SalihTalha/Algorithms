@@ -1,0 +1,42 @@
+// you can use includes, for example:
+// #include <algorithm>
+
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
+
+vector<int> solution(vector<int> &A, int K) {
+    int i;
+    vector<int> B;
+    int size = A.size();
+/*
+	A MISTAKE THAT I REALIZE AFTER
+	I should check if array is empty.
+	Add this line for %100 solution:
+		if(size == 0) return A;
+	there is no more errors about the code so this is the final code
+
+*/
+    // i think insert function can take much time
+    /*
+    for(; K > 0; K--){
+        A.insert(A.begin(), *(A.end()-1));
+        A.pop_back();
+    }*/
+    
+    // this can lead to some problems later if N is less than K so i'll do this
+    K = K % size;
+    if(K == 0)
+        return A;
+
+    
+    for(i = 0; i < K; i++){
+        B.push_back(A[size-K+i]);
+    }
+    for(i = 0; i < size-K; i++){
+        B.push_back(A[i]);    
+    }
+    
+    // there is another solution that we control if K is bigger or lesser than size/2 and make some calculations after that but i will not do that because my algorithm here is more simply does the both way, in case of productivity i dont know any other solution to insert an element without shift all the others, maybe a linked list? but i dont think it is useful in this case
+    
+    return B;
+}

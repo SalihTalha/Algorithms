@@ -1,0 +1,1 @@
+This was an easy question but i forget to control if array is empty :D
