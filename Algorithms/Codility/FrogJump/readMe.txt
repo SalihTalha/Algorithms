@@ -1,0 +1,1 @@
+I was confused about the question because it seemed very easy but there was a little trick that i saw, this time i did not made it wrong and controlled some extreme cases.
