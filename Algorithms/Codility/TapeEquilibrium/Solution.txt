@@ -1,0 +1,29 @@
+int solution(vector<int> &A) {
+    
+    int size = A.size();
+    int i = 0 ,j = size -1; // i is the index of the element added the left lastly , j is same for right 
+    int left = A[0],right = A[j];
+    
+    while(i != j-1){
+        if(left > right){
+            j--;
+            right += A[j];
+        }
+        else{
+            i++;
+            left += A[i];
+        }
+        /*else if(right == left){ // the else if deos: if left and right is equal, than next step will be the smallest one but i figured that is not necessary
+            if(A[i+1] > A[j-1]){
+                j--;
+                right += A[j];
+            }else{
+                i++;
+                left += A[i];
+            }
+        }*/
+    }
+    
+    return (left-right > right-left) ? left-right : right-left; // nothing but a fancy if statement that returns the absolute value of the result
+    
+}

@@ -1,0 +1,31 @@
+int solution(vector<int> &A) {
+    int size = A.size();
+    int i = 0, j = size - 1;
+    int left = A[i], right = A[j];
+    while(i != j-1){
+        if(left > right){
+            if(A[j-1] > 0){
+                j--;
+                right += A[j];
+            }else{
+                i++;
+                left += A[i];
+            }
+        }
+        else{
+            if(A[i+1] > 0){
+            i++;
+            left += A[i];
+            }
+            else{
+                j--;
+                right += A[j];
+            }
+        }
+    }
+    return (left-right > right-left) ? left-right : right-left;
+    
+}/*
+	This time i got %69 and the problem is random array which there will be negative and positive numbers in the same time.
+	Actually i knew that will be a problem but i can't solve it yet.
+ */
