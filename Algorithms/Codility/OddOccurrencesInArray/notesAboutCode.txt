@@ -1,3 +1,5 @@
 Actually this was an easy question but i dont know why i think the only solution can be O(n^2).
 Apperantly there is another solution with less time complexity. So i will be find that solution and
 add it here. Since than you should try it yourself i think. (Not easy as it looks)
+
+I have done solution3 and actually it was way more easy than i think :D
