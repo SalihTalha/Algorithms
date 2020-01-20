@@ -1,0 +1,44 @@
+#include <algorithm>
+int solution(vector<int> &A) {
+    /*int i = 0;
+    int result = 1;
+    int size = A.size();
+    
+    while(true){
+        if(result == A[i]){
+            i = 0;
+            result++;
+        }
+        i++;
+        if(i == size)
+            break;
+    }
+    return result; // i think this is not exactly what i want
+    */
+    int i = 0;
+    int result = 1;
+    int size = A.size();
+    sort(A.begin(),A.end());
+    
+    if(A[size -1 ] < 1)
+        return 1;
+        
+    while(A[i] < result && i < size){
+        i++;
+    }
+    while(i < size){
+        if(A[i] == result){
+            i++;
+        }else if(A[i] == result+1){
+            result++;
+            i++;
+        }else{
+            break;
+        }
+    }
+    return result+1;
+}
+
+/*
+	I have got %55 with just a little problem. I should have checked if all the elements are 1 :(
+*/
