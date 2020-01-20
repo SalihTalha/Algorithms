@@ -1,0 +1,20 @@
+int ab(int a){
+    return a>0?a:(-1)*a;
+}
+int solution(vector<int> &A) {
+    int size = A.size();
+    int i = 0, j = size - 1;
+    int left = A[i], right = A[j];
+    
+    while(i != j-1){
+        if( ab(right+A[j-1]-left) > ab(left+A[i+1]-right)){
+            i++;
+            left += A[i];
+        }
+        else{
+            j--;
+            right += A[j];
+        }
+    }
+    return ab(left-right);
+}
