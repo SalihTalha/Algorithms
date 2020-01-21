@@ -1,0 +1,17 @@
+#include <algorithm>
+vector<int> solution(int N, vector<int> &A) {
+    int i, max;
+    int size = A.size();
+    vector<int> ans(N,0); // N is element number of ans, we init. 0 to all elements
+
+    for(i = 0; i < size; i++){
+        if(A[i] < N+1){
+            ans[A[i]-1] += 1;
+        }
+        else{
+            max = *max_element(ans.begin(),ans.end());
+            ans.assign(N,max);
+        }
+    }
+    return ans;
+}
