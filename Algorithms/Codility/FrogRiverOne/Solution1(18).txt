@@ -1,0 +1,46 @@
+#include <algorithm>
+int solution(int X, vector<int> &A) {
+    vector<int>::iterator it, finder;
+    int i,findCounter;
+    
+    findCounter = 0;
+    i = 0;
+    it = find(A.begin(),A.end(),X);
+    finder = A.begin();
+    start:
+    if(it == A.end() and *it != X)
+        return -1;
+    else{
+        sort(A.begin(),it);
+        while(finder != it){
+            
+            // this paragraph is for these cases: 1 2 3 4 5 6 12 25 6 1 7 (we are looking for 7)
+            if(i == X-1){
+                while(finder != it){
+                    finder++;
+                    findCounter++;
+                }
+                findCounter++;
+                break;
+            }
+            else if(*finder == i){
+                finder++;
+                findCounter++;
+            }
+            else if(*finder == i+1){
+                finder++;
+                findCounter++;
+                i++;
+            }
+            else{
+                it = find(it+1,A.end(),X);
+                goto start;
+            }
+            
+        }
+    }
+    if(i != X-1){
+        it = find(it+1, A.end(),X);
+        goto start;
+    }
+    return findCounter;
