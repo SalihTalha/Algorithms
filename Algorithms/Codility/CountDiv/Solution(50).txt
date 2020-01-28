@@ -1,0 +1,60 @@
+int solution(int A, int B, int K) {
+    /*int diff,L,notCounted;
+    int leftPart,rightPart;
+    // difference is B - A
+    // L is how much K in diff
+    // notCounted is the part that we have not counted, we will look at it as 
+    // if notCounted part is smaller than K than we do K++;
+    // leftPart + rightPart will be notCounted parts
+    diff = B - A;
+    if(diff == 0 or K > B){
+        return 0;
+    }
+    if(K == B){
+        return 1;
+    }
+    if(K == 1){
+        return diff + 1;
+    }
+    
+    L = diff / K;
+    if(A%K != 0)
+        leftPart = ((A/K)+ 1)*K; 
+    else leftPart = 0;
+    
+    rightPart = B % K;
+    
+    notCounted = leftPart + rightPart;
+    if(notCounted >= K){
+        return L;
+    }
+    else{
+        return L + 1;
+    }*/
+    
+    // firstly i'm going to look at some extreme possibilities
+    
+    if(K > B or B-A == 0){
+        return 0;
+    }
+    
+    if(K == B){
+        return 1;
+    }
+    
+    //Now i got a better idea
+    
+    int start,end, result;
+    if(A % K == 0){
+        start = A;
+    }
+    else{
+        start = (A / K + 1) * K;
+    }
+    
+    end = B - ( B % K );
+    
+    result = ((end - start) / K ) + 1;
+    
+    return result;
+}
